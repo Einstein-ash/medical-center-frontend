@@ -5,6 +5,8 @@ import DoctorCard from "./DoctorCard";
 
 import Loader from "../../components/Loader/Loading";
 import Error from "../../components/Error/Error";
+import Doc1 from "../../assets/images/doc1.avif"
+
 const DoctorList = () => {
 
 
@@ -66,11 +68,11 @@ const DoctorList = () => {
   const doctors = [
       {
         _id: "65dbfae83a28621a9914e5c9",
-        name: "Dr. David Poii  ii",
+        name: "Dr. David ",
         specialization: "Psychiatrist",
         role: "doctor",
         bio: "Dr. David P is a board-certified psychiatrist specializing in the diagnosis and treatment of mental health disorders, including anxiety, depression, and PTSD. With extensive training and experience in both clinical practice and research, Dr. David is dedicated to providing personalized care to his patients. He believes in a holistic approach to mental health, integrating the latest advancements in psychiatric treatment with compassionate patient-centered care. Dr. David is committed to staying at the forefront of psychiatry through ongoing research and collaboration with colleagues in the field.",
-        photo: "http://res.cloudinary.com/hyemeecloud/image/upload/v1710033544/pjvzwcraohz7fkv7tous.png",
+        photo: "https://res.cloudinary.com/dlkd2qsml/image/upload/v1723831382/w7lb4ngsrdrsmyldifjo.avif",
         email: "d@d.com",
         phone: "402123454",
         isApproved: "approved",
@@ -111,7 +113,7 @@ const DoctorList = () => {
         specialization: "Mental Health Specialist",
         role: "doctor",
         bio: "Dr. Bryan G is a mental health specialist with a focus on treating complex mental health issues such as bipolar disorder, schizophrenia, and addiction. With a compassionate approach and evidence-based treatments, Dr. Bryan provides his patients with comprehensive care tailored to their unique needs. He is committed to advancing mental health care by staying informed of the latest research and applying innovative therapies in his practice.",
-        photo: "http://res.cloudinary.com/hyemeecloud/image/upload/v1710034322/pizadhetvzptz8eafanm.png",
+        photo: "https://res.cloudinary.com/dlkd2qsml/image/upload/v1723831382/w7lb4ngsrdrsmyldifjo.avif",
         email: "b@b.com",
         phone: "40212341234",
         isApproved: "approved",
@@ -154,11 +156,11 @@ const DoctorList = () => {
       {
         _id: "65ed0a8fd255ccf40b23d6d5",
         // name: "Dr. Bryan G" ,
-        name: "Dr. Moogli Singh",
+        name: "Dr. Maverik Jane",
         specialization: "Mental Health Specialist",
         role: "doctor",
         bio: "Dr. Bryan G is a mental health specialist with a focus on treating complex mental health issues such as bipolar disorder, schizophrenia, and addiction. With a compassionate approach and evidence-based treatments, Dr. Bryan provides his patients with comprehensive care tailored to their unique needs. He is committed to advancing mental health care by staying informed of the latest research and applying innovative therapies in his practice.",
-        photo: "http://res.cloudinary.com/hyemeecloud/image/upload/v1710034322/pizadhetvzptz8eafanm.png",
+        photo: "https://res.cloudinary.com/dlkd2qsml/image/upload/v1723831382/w7lb4ngsrdrsmyldifjo.avif",
         email: "b@b.com",
         phone: "40212341234",
         isApproved: "approved",

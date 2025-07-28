@@ -1,5 +1,7 @@
-
+import {React,useContext} from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+import { AuthContext } from "../../context/AuthContext.jsx";
+
 
 
 
@@ -7,18 +9,24 @@ import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 
 const VideoChat = () => {
     const roomID = "Health_for_you";
+
+    
+    const { user } = useContext(AuthContext);
+    const userName = user.name;
+
     let myMeeting = async (element) => {
    // generate Kit Token
     // const appID = process.env.APP_Id;
     // const serverSecret = process.env.SERVER_SECRET;
     const appID = 572130434;
     const serverSecret = "c552f92f407bf9779df8b8f04fea4d8a";
-    const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,  Date.now().toString(),  "Vaishali");
+    const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,  Date.now().toString(), user.name);
 
   
    // Create instance object from Kit Token.
     const zp = ZegoUIKitPrebuilt.create(kitToken);
     // start the call
+    
     zp.joinRoom({
       container: element,
       sharedLinks: [

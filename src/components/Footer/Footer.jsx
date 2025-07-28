@@ -1,4 +1,4 @@
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/main_logo3.png";
 import { Link } from "react-router-dom";
 import { RiLinkedinFill } from "react-icons/ri";
 import {
@@ -7,9 +7,11 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 
+import "../../assets/css/footer.css";
+
 const socialLinks = [
   {
-    path: "https://github.com/Hyemee1021",
+    path: "https://github.com/Einstein-ash",
     icon: <AiFillGithub className="group-hover:text-white w-4 h-5" />,
   },
 
@@ -19,7 +21,7 @@ const socialLinks = [
   },
 ];
 
-const quickLinks01 = [
+const quickLinks01 = [ 
   {
     path: "/home",
     display: "Home",
@@ -63,7 +65,7 @@ const Footer = () => {
     <footer className="pt-16 pb-10">
       <div className="container">
         <div className="flex justify-between flex-col md:flex-row flex-wrap gap-[30px]">
-          <div>
+          <div className="footer_logo">
             <img src={logo} alt="" />
             <p className="text-[16px] leading-7 font-[400] text-textColor mt-4">
               Copyright © {year} developed by Ashwani Selwal. All rights reserved.

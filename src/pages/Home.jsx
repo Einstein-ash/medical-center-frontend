@@ -1,3 +1,5 @@
+import React, { useState,useEffect } from 'react';
+
 import { Link } from "react-router-dom";
 import heroImg01 from "../assets/images/hero-img01.png";
 import heroImg00 from "../assets/images/doc_pic2.png";
@@ -24,6 +26,12 @@ import  "../assets/css/home.css";
 
 
 const Home = () => {
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+
   return (
     <>
       <section className="hero__section pt-[60px] 2xl:h-[800px]">

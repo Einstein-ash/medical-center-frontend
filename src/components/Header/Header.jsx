@@ -261,6 +261,144 @@
 
 
 // --- belwo is test to add loader between logout to navigate to login ------
+
+
+
+// import React, { useContext, useEffect, useRef, useState } from "react";
+// import { BiMenu } from "react-icons/bi";
+// import { AuthContext } from "../../context/AuthContext.jsx";
+// import { NavLink, Link, useNavigate, useLocation } from "react-router-dom"; // Import useLocation
+// import logo from "../../assets/images/main_logo3.png";
+// import "../../assets/css/header.css";
+// import Loading from "../Loader/Loading.jsx";
+
+// const navLinks = [
+//   {
+//     path: "/home",
+//     display: "Home",
+//   },
+//   {
+//     path: "/services",
+//     display: "Services",
+//   },
+// ];
+
+// const Header = () => {
+//   const headerRef = useRef(null);
+//   const menuRef = useRef(null);
+//   const navigate = useNavigate();
+//   const location = useLocation(); // Get current path using useLocation()
+
+//   const { user, token } = useContext(AuthContext);
+
+//   const [loading, setLoading] = useState(false); // State to manage loading spinner
+
+//   const handleStickyHeader = () => {
+//     window.addEventListener("scroll", () => {
+//       if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+//         headerRef.current.classList.add("sticky__header");
+//       } else {
+//         headerRef.current.classList.remove("sticky__header");
+//       }
+//     });
+//   };
+
+//   useEffect(() => {
+//     handleStickyHeader();
+//     return () => window.removeEventListener("scroll", handleStickyHeader);
+//   }, []);
+
+//   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
+
+//   // Logout handler
+//   const logoutHandler = () => {
+//     setLoading(true); // Show loading spinner
+
+//     // Simulate a delay before logging out and navigating
+//     setTimeout(() => {
+//       localStorage.clear();
+//       setLoading(false);
+//       navigate("/login");
+//       window.location.reload();
+//     }, 3000); // 3-second delay before redirecting
+//   };
+
+//   // If loading is true, show the loading spinner
+//   if (loading) {
+//     return <Loading />;
+//   }
+
+//   return (
+//     <header className="header flex items-center h-25" ref={headerRef}>
+//       <div className="container">
+//         <div className="flex items-center justify-between">
+//           {/* logo */}
+//           <div className="header_logo">
+//             <img src={logo} alt="logo" />
+//           </div>
+
+//           {/* menu */}
+//           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
+//             <ul className="menu flex items-center gap-[2.5rem]">
+//               {navLinks.map((link, index) => (
+//                 <li key={index}>
+//                   <NavLink
+//                     to={link.path}
+//                     className={(navClass) =>
+//                       navClass.isActive
+//                         ? "text-[#1bcc20] font-[600] text-[16px] leading-7"
+//                         : "text-textColor font-[500] text-[16px] leading-7 hover:text-lime-500"
+//                     }
+//                   >
+//                     {link.display}
+//                   </NavLink>
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+
+//           {/* nav right */}
+//           <div className="flex items-center gap-4">
+//             {token && user ? (
+//               <div className="flex items-center">
+//                 <div className="show_name mr-4">
+//                   <h1>Welcome {user.name}</h1>
+//                 </div>
+//                 <button
+//                   className="bg-red-500 text-white py-2 px-6 rounded-[50px] font-[600] h-[44px] flex items-center justify-center"
+//                   onClick={logoutHandler}
+//                 >
+//                   Log Out
+//                 </button>
+//               </div>
+//             ) : (
+//               // Only show the "Log In" button if not on the login page
+//               location.pathname !== "/login" && (
+//                 <Link to="login">
+//                   <button className="bg-lime-500 text-white py-2 px-6 rounded-[50px] font-[600] h-[44px] flex items-center justify-center">
+//                     Log In
+//                   </button>
+//                 </Link>
+//               )
+//             )}
+
+//             <span className="md:hidden" onClick={toggleMenu}>
+//               <BiMenu className="w-6 h-6 cursor-pointer" />
+//             </span>
+//           </div>
+//         </div>
+//       </div>
+//     </header>
+//   );
+// };
+
+// export default Header;
+
+
+
+// ------------- above is greate ----- below is test to responve welocme name, and login/logut  button ---------
+
+
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { BiMenu } from "react-icons/bi";
 import { AuthContext } from "../../context/AuthContext.jsx";
@@ -327,62 +465,83 @@ const Header = () => {
 
   return (
     <header className="header flex items-center h-25" ref={headerRef}>
-      <div className="container">
-        <div className="flex items-center justify-between">
-          {/* logo */}
-          <div className="header_logo">
-            <img src={logo} alt="logo" />
-          </div>
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        {/* logo */}
+        <div className="header_logo flex-shrink-0">
+          <img src={logo} alt="logo" className="w-10" />
+        </div>
 
-          {/* menu */}
-          <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-            <ul className="menu flex items-center gap-[2.5rem]">
-              {navLinks.map((link, index) => (
-                <li key={index}>
-                  <NavLink
-                    to={link.path}
-                    className={(navClass) =>
-                      navClass.isActive
-                        ? "text-[#1bcc20] font-[600] text-[16px] leading-7"
-                        : "text-textColor font-[500] text-[16px] leading-7 hover:text-lime-500"
-                    }
-                  >
-                    {link.display}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* nav right */}
-          <div className="flex items-center gap-4">
-            {token && user ? (
-              <div className="flex items-center">
-                <div className="show_name mr-4">
-                  <h1>Welcome {user.name}</h1>
-                </div>
-                <button
-                  className="bg-red-500 text-white py-2 px-6 rounded-[50px] font-[600] h-[44px] flex items-center justify-center"
-                  onClick={logoutHandler}
+        {/* menu */}
+        <div className="navigation hidden md:block" ref={menuRef} onClick={toggleMenu}>
+          <ul className="menu flex items-center gap-[2.5rem]">
+            {navLinks.map((link, index) => (
+              <li key={index}>
+                <NavLink
+                  to={link.path}
+                  className={(navClass) =>
+                    navClass.isActive
+                      ? "text-[#1bcc20] font-[600] text-[16px] leading-7"
+                      : "text-textColor font-[500] text-[16px] leading-7 hover:text-lime-500"
+                  }
                 >
-                  Log Out
-                </button>
-              </div>
-            ) : (
-              // Only show the "Log In" button if not on the login page
-              location.pathname !== "/login" && (
-                <Link to="login">
-                  <button className="bg-lime-500 text-white py-2 px-6 rounded-[50px] font-[600] h-[44px] flex items-center justify-center">
-                    Log In
-                  </button>
-                </Link>
-              )
-            )}
+                  {link.display}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-            <span className="md:hidden" onClick={toggleMenu}>
-              <BiMenu className="w-6 h-6 cursor-pointer" />
-            </span>
-          </div>
+        {/* nav right */}
+        <div className="flex items-center gap-4">
+          {token && user ? (
+            <div className="flex items-center space-x-4">
+              <div className="show_name hidden md:block">
+                <h1 className="text-lg font-semibold text-gray-700">
+                  Welcome, {user.name}
+                </h1>
+              </div>
+              <button
+                className="bg-red-500 text-white py-2 px-6 rounded-[50px] font-[600] h-[44px] flex items-center justify-center"
+                onClick={logoutHandler}
+              >
+                Log Out
+              </button>
+            </div>
+          ) : (
+            // Only show the "Log In" button if not on the login page
+            location.pathname !== "/login" && (
+              <Link to="login">
+                <button className="bg-lime-500 text-white py-2 px-6 rounded-[50px] font-[600] h-[44px] flex items-center justify-center">
+                  Log In
+                </button>
+              </Link>
+            )
+          )}
+
+          <span className="md:hidden" onClick={toggleMenu}>
+            <BiMenu className="w-6 h-6 cursor-pointer" />
+          </span>
+        </div>
+
+        {/* Mobile menu */}
+        <div className="navigation md:hidden" ref={menuRef} onClick={toggleMenu}>
+          <ul className="menu flex flex-col items-center gap-2 mt-4">
+            {navLinks.map((link, index) => (
+              <li key={index}>
+                <NavLink
+                  to={link.path}
+                  className={(navClass) =>
+                    navClass.isActive
+                      ? "text-[#1bcc20] font-[600] text-[16px] leading-7"
+                      : "text-textColor font-[500] text-[16px] leading-7 hover:text-lime-500"
+                  }
+                  onClick={toggleMenu} // Close menu on link click
+                >
+                  {link.display}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </header>

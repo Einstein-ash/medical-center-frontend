@@ -1,9 +1,15 @@
-import React from "react";
+import {React, useEffect} from "react";
 import ServiceCard from "../components/Services/ServiceCard";
 
 import { services } from "../assets/data/services";
 
 const Sevices = () => {
+
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+
   return (
     <section>
       <div className="container">
